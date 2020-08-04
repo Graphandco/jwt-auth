@@ -3,6 +3,8 @@ const app = express();
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 
+const cors = require('cors');
+
 dotenv.config();
 
 //Import routes
@@ -19,6 +21,7 @@ mongoose.connect(
 );
 
 //Middleware
+app.use(cors());
 app.use(express.json());
 
 //Route Middlewares
