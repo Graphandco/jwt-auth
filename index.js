@@ -7,6 +7,7 @@ dotenv.config();
 
 //Import routes
 const authRoute = require('./routes/auth');
+const protectedRoute = require('./routes/protected');
 
 //Connect to DB
 mongoose.connect(
@@ -22,5 +23,6 @@ app.use(express.json());
 
 //Route Middlewares
 app.use('/api/user', authRoute);
+app.use('/api/protected', protectedRoute);
 
 app.listen(3000, () => console.log('** Server started **'));
